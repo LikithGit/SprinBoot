@@ -22,13 +22,13 @@ public class Controller {
 	Map<Integer,Modelclass> user = new HashMap<>();  // o/p in key-value pair
 	
 	
-	@GetMapping
+	@GetMapping(value = "/getusers")
 	public Collection<Modelclass> getMethod(){
 		
 		return user.values();
 	}
 	
-	@PostMapping
+	@PostMapping (value = "/addusers")
 	public String post(@RequestBody Modelclass model){
 		Modelclass obj = new Modelclass();
 		obj.setId(model.getId());
@@ -62,6 +62,11 @@ public class Controller {
 		else {
 			return "User Not Found";
 		}
+	}
+	
+	@GetMapping(value = "/get")
+	public String get1() {
+		return "Get method called";
 	}
 	
 }
